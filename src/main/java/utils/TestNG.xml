@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="Task 3.2">
+
+   <!-- <test name="Test1_Alerts">
+        <classes>
+            <class name="Test1_Alerts"/>
+        </classes>
+    </test>
+
+    <test name="Test2_Iframe">
+        <classes>
+            <class name="Test2_Iframe"/>
+        </classes>
+    </test>
+
+    <test name="Test3_Tables">
+        <classes>
+            <class name="Test3_Tables"/>
+        </classes>
+    </test>
+
+    <test name="Test4_Handles">
+        <classes>
+            <class name="Test4_Handles"/>
+        </classes>
+    </test>
+
+    <test name="Test6_Calendar">
+        <classes>
+            <class name="Test6_Calendar"/>
+        </classes>
+    </test>-->
+    <!-- Test -->
+</suite> <!-- Suite -->
