@@ -10,7 +10,7 @@ public class Test1_Alerts extends BaseTest {
 
     static final Logger rootLogger = LogManager.getRootLogger();
     static final Logger test1Logger = LogManager.getLogger(Test1_Alerts.class);
-    static final int delay = 2000;
+    static final int delay = 1000;
 
 
     @Test
@@ -29,7 +29,7 @@ public class Test1_Alerts extends BaseTest {
 
         JavascriptExecutor js = (JavascriptExecutor) driver;
         js.executeScript("window.scrollBy(0,950)", "");
-        test1Logger.debug("scrolled down 550");
+        test1Logger.debug("scrolled down 950");
 
        /* homePage.getYearSelect().click();
 
@@ -48,60 +48,73 @@ public class Test1_Alerts extends BaseTest {
 
         homePage.getPositionSelect().click();*/
 
-       // System.out.println("+++" + homePage.getYearSelect().getText());
+        // System.out.println("+++" + homePage.getYearSelect().getText());
         try {
-        for (WebElement webElementYearItemOfList : homePage.getYearSelect().getAllOptionsFromSelect()) {
-            webElementYearItemOfList.click();
-            System.out.println(webElementYearItemOfList.getText());
-            Thread.sleep(delay);
-            try {
-                for (WebElement webElementMakeItemOfList : homePage.getMakeSelect().getAllOptionsFromSelect()) {
+            for (WebElement webElementYearItemOfList : homePage.getYearSelect().getAllOptionsFromSelect()) {
+                webElementYearItemOfList.click();
+                System.out.println(webElementYearItemOfList.getText());
+                Thread.sleep(delay);
+                try {
+                    for (WebElement webElementMakeItemOfList : homePage.getMakeSelect().getAllOptionsFromSelect()) {
 
-                    webElementMakeItemOfList.click();
-                    System.out.println(webElementMakeItemOfList.getText());
-                    Thread.sleep(delay);
-                    try {
-                        for (WebElement webElementModelItemOfList : homePage.getModelSelect().getAllOptionsFromSelect()) {
-                            webElementModelItemOfList.click();
-                            System.out.println(webElementModelItemOfList.getText());
-                            Thread.sleep(delay);
-                            try {
-                                for (WebElement webElementPositionItemOfList : homePage.getPositionSelect().getAllOptionsFromSelect()) {
-                                    webElementPositionItemOfList.click();
-                                    System.out.println(webElementPositionItemOfList.getText());
-                                    Thread.sleep(delay);
+                        webElementMakeItemOfList.click();
+                        System.out.println(webElementMakeItemOfList.getText());
+                        Thread.sleep(delay);
+                        try {
+                            for (WebElement webElementModelItemOfList : homePage.getModelSelect().getAllOptionsFromSelect()) {
+                                webElementModelItemOfList.click();
+                                System.out.println(webElementModelItemOfList.getText());
+                                Thread.sleep(delay);
+
+                                try {
+                                    for (WebElement webElementPositionItemOfList : homePage.getPositionSelect().getAllOptionsFromSelect()) {
+                                        if (webElementPositionItemOfList.getText().equalsIgnoreCase("ALL")) {
+                                            webElementPositionItemOfList.click();
+                                            System.out.println(webElementPositionItemOfList.getText());
+                                            Thread.sleep(delay);
+                                        }
+                                    }
+                                } catch (org.openqa.selenium.StaleElementReferenceException ex) {
+                                    for (WebElement webElementPositionItemOfList : homePage.getPositionSelect().getAllOptionsFromSelect()) {
+                                        if (webElementPositionItemOfList.getText().equalsIgnoreCase("ALL")) {
+                                            webElementPositionItemOfList.click();
+                                            System.out.println(webElementPositionItemOfList.getText());
+                                            Thread.sleep(delay);
+                                        }
+                                    }
                                 }
-                            } catch (org.openqa.selenium.StaleElementReferenceException ex) {
-                                for (WebElement webElementPositionItemOfList : homePage.getPositionSelect().getAllOptionsFromSelect()) {
-                                    webElementPositionItemOfList.click();
-                                    System.out.println(webElementPositionItemOfList.getText());
-                                    Thread.sleep(delay);
-                                }
+
+                            /*    try {
+                                    homePage.getPositionSelect().getAllOptionsFromSelect().get(1).click();
+                                } catch (org.openqa.selenium.StaleElementReferenceException ex) {
+                                    homePage.getPositionSelect().getAllOptionsFromSelect().get(1).click();
+                                }*/
+
+                            }
+                        } catch (org.openqa.selenium.StaleElementReferenceException ex) {
+                            for (WebElement webElementModelItemOfList : homePage.getModelSelect().getAllOptionsFromSelect()) {
+                                webElementModelItemOfList.click();
+                                System.out.println(webElementModelItemOfList.getText());
+                                Thread.sleep(delay);
                             }
                         }
-                    } catch (org.openqa.selenium.StaleElementReferenceException ex) {
-                        for (WebElement webElementModelItemOfList : homePage.getModelSelect().getAllOptionsFromSelect()) {
-                            webElementModelItemOfList.click();
-                            System.out.println(webElementModelItemOfList.getText());
-                            Thread.sleep(delay);
-                        }
+                    }
+                } catch (org.openqa.selenium.StaleElementReferenceException ex) {
+                    for (WebElement webElementMakeItemOfList : homePage.getMakeSelect().getAllOptionsFromSelect()) {
+                        webElementMakeItemOfList.click();
+                        System.out.println(webElementMakeItemOfList.getText());
+                        Thread.sleep(delay);
                     }
                 }
-            } catch (org.openqa.selenium.StaleElementReferenceException ex) {
-                for (WebElement webElementMakeItemOfList : homePage.getMakeSelect().getAllOptionsFromSelect()) {
-                    webElementMakeItemOfList.click();
-                    System.out.println(webElementMakeItemOfList.getText());
-                    Thread.sleep(delay);
-                }
             }
-        }
         } catch (Exception ex) {
             for (WebElement webElementYearItemOfList : homePage.getYearSelect().getAllOptionsFromSelect()) {
                 try {
                     webElementYearItemOfList.click();
                     System.out.println(webElementYearItemOfList.getText());
                     Thread.sleep(delay);
-                } catch (Exception e) {}
+                } catch (Exception e) {
+                }
             }
         }
 
