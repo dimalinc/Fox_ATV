@@ -10,7 +10,7 @@ public class Test1_Alerts extends BaseTest {
 
     static final Logger rootLogger = LogManager.getRootLogger();
     static final Logger test1Logger = LogManager.getLogger(Test1_Alerts.class);
-    static final int delay = 1000;
+    static final int delay = 900;
 
 
     @Test
@@ -70,16 +70,18 @@ public class Test1_Alerts extends BaseTest {
                                     for (WebElement webElementPositionItemOfList : homePage.getPositionSelect().getAllOptionsFromSelect()) {
                                         if (webElementPositionItemOfList.getText().equalsIgnoreCase("ALL")) {
                                             webElementPositionItemOfList.click();
-                                            System.out.println(webElementPositionItemOfList.getText());
+                                       //     System.out.println(webElementPositionItemOfList.getText());
                                             Thread.sleep(delay);
+                                            System.out.println(driver.getCurrentUrl());
                                         }
                                     }
                                 } catch (org.openqa.selenium.StaleElementReferenceException ex) {
                                     for (WebElement webElementPositionItemOfList : homePage.getPositionSelect().getAllOptionsFromSelect()) {
                                         if (webElementPositionItemOfList.getText().equalsIgnoreCase("ALL")) {
                                             webElementPositionItemOfList.click();
-                                            System.out.println(webElementPositionItemOfList.getText());
+                                         //   System.out.println(webElementPositionItemOfList.getText());
                                             Thread.sleep(delay);
+                                            System.out.println(driver.getCurrentUrl());
                                         }
                                     }
                                 }
