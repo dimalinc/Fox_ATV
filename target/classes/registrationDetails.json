@@ -1,0 +1,19 @@
+[
+  {
+    "FirstName":"FirstName",
+    "LastName":"LastName",
+    "Email":"1@i.ua",
+    "Age":"1111",
+    "Salary":"330",
+    "Department":"Investing"
+  },
+  {
+    "FirstName":"FirstName2",
+    "LastName":"LastName2",
+    "Email":"2@i.ua",
+    "Age":"2222",
+    "Salary":"440",
+    "Department":"Sales"
+  }
+  
+  ]
