@@ -2,9 +2,9 @@
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
 <suite name="Task 3.2">
 
-   <!-- <test name="Test1_Alerts">
+   <!-- <test name="ATV">
         <classes>
-            <class name="Test1_Alerts"/>
+            <class name="ATV"/>
         </classes>
     </test>
 

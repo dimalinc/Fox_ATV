@@ -6,10 +6,10 @@ import org.testng.Assert;
 import org.testng.annotations.Test;
 import pageObjects.HomePageFoxATV;
 
-public class Test1_Alerts extends BaseTest {
+public class Dropdowns_trucks extends BaseTest {
 
     static final Logger rootLogger = LogManager.getRootLogger();
-    static final Logger test1Logger = LogManager.getLogger(Test1_Alerts.class);
+    static final Logger test1Logger = LogManager.getLogger(Dropdowns_trucks.class);
     static final int delay = 900;
 
 
@@ -26,6 +26,8 @@ public class Test1_Alerts extends BaseTest {
         test1Logger.debug("opening HomePageFoxATV");
 
         homePage.getAcceptCoockies().click();
+
+        driver.get("https://www.ridefox.com/subhome.php?m=truck");
 
         JavascriptExecutor js = (JavascriptExecutor) driver;
         js.executeScript("window.scrollBy(0,950)", "");
@@ -49,10 +51,11 @@ public class Test1_Alerts extends BaseTest {
         homePage.getPositionSelect().click();*/
 
         // System.out.println("+++" + homePage.getYearSelect().getText());
+
         try {
-            for (WebElement webElementYearItemOfList : homePage.getYearSelect().getAllOptionsFromSelect()) {
-                webElementYearItemOfList.click();
-                System.out.println(webElementYearItemOfList.getText());
+            for (int i = 2; i < 6; i++) {
+                homePage.getYearSelect().selectOptionByIndex(i);
+                System.out.println(homePage.getYearSelect().getSelectedOption().getText());
                 Thread.sleep(delay);
                 try {
                     for (WebElement webElementMakeItemOfList : homePage.getMakeSelect().getAllOptionsFromSelect()) {
@@ -85,13 +88,11 @@ public class Test1_Alerts extends BaseTest {
                                         }
                                     }
                                 }
-
                             /*    try {
                                     homePage.getPositionSelect().getAllOptionsFromSelect().get(1).click();
                                 } catch (org.openqa.selenium.StaleElementReferenceException ex) {
                                     homePage.getPositionSelect().getAllOptionsFromSelect().get(1).click();
                                 }*/
-
                             }
                         } catch (org.openqa.selenium.StaleElementReferenceException ex) {
                             for (WebElement webElementModelItemOfList : homePage.getModelSelect().getAllOptionsFromSelect()) {
@@ -110,15 +111,15 @@ public class Test1_Alerts extends BaseTest {
                 }
             }
         } catch (Exception ex) {
-            for (WebElement webElementYearItemOfList : homePage.getYearSelect().getAllOptionsFromSelect()) {
+            /*for (WebElement webElementYearItemOfList : homePage.getYearSelect().getAllOptionsFromSelect()) {
                 try {
                     webElementYearItemOfList.click();
                     System.out.println(webElementYearItemOfList.getText());
                     Thread.sleep(delay);
                 } catch (Exception e) {
-                }
-            }
+                }*/
         }
+
 
 
 
